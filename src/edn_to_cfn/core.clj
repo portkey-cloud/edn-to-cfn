@@ -65,32 +65,33 @@
                        item))))
      {:pretty true})))
 
-(def paths [["/service" "service-tg"]
-            ["/api/*" "api-tg"]
-            ["/static/*" "resources-tg"]])
+(comment
+  (def paths [["/service" "service-tg"]
+              ["/api/*" "api-tg"]
+              ["/static/*" "resources-tg"]])
 
-(println
- (edn->cfn
-  {:aws/template-format-version "2010-09-09"
-   :cfn/resources
-   (merge
-    {"my-ec2-machine" {:cfn/type "AWS::EC2::Instance"
-                       :ec2/disable-api-termination false
-                       :ec2/instance-initiated-shutdown-behaviour "stop"
-                       :ec2/image-id #ref "image-id"}}
-    (into
-     {}
-     (map-indexed
-      (fn [i [path target-group paths]]
-        [(str "rule" i)
-         {:cfn/type "AWS::ElasticLoadBalancingV2::ListenerRule"
-          :elbv2/actions
-          {:elbv2/type "forward"
-           :elbv2/target-group-arn (->Ref target-group)}
+  (println
+   (edn->cfn
+    {:aws/template-format-version "2010-09-09"
+     :cfn/resources
+     (merge
+      {"my-ec2-machine" {:cfn/type "AWS::EC2::Instance"
+                         :ec2/disable-api-termination false
+                         :ec2/instance-initiated-shutdown-behaviour "stop"
+                         :ec2/image-id #ref "image-id"}}
+      (into
+       {}
+       (map-indexed
+        (fn [i [path target-group paths]]
+          [(str "rule" i)
+           {:cfn/type "AWS::ElasticLoadBalancingV2::ListenerRule"
+            :elbv2/actions
+            {:elbv2/type "forward"
+             :elbv2/target-group-arn (->Ref target-group)}
 
-          :elbv2/conditions
-          {:elbv2/field "path-pattern"
-           :elbv2/values [path]}
-          :elbv2/listener-arn (->Ref "appelb")
-          :elbv2/priority (inc i)}]) paths)))
-   :parameters {"image-id" "some-ami-id"}}))
+            :elbv2/conditions
+            {:elbv2/field "path-pattern"
+             :elbv2/values [path]}
+            :elbv2/listener-arn (->Ref "appelb")
+            :elbv2/priority (inc i)}]) paths)))
+     :parameters {"image-id" "some-ami-id"}})))
