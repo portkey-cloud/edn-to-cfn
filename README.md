@@ -1,5 +1,7 @@
 # edn-to-cfn
 
+[![CircleCI](https://circleci.com/gh/portkey-cloud/edn-to-cfn.svg?style=svg)](https://circleci.com/gh/portkey-cloud/edn-to-cfn)
+
 This is a WIP tool to generate AWS CloudFormation templates form Clojure data.
 
 *WARNING:* This is not usable yet!
