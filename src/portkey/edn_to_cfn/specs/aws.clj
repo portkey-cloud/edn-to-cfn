@@ -1,4 +1,4 @@
-(ns edn-to-cfn.specs.aws
+(ns portkey.edn-to-cfn.specs.aws
   (:require [clojure.spec.alpha :as s]))
 
 

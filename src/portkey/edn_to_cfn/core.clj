@@ -1,11 +1,11 @@
-(ns edn-to-cfn.core
+(ns portkey.edn-to-cfn.core
   (:require [cheshire.core :as cheshire]
             [expound.alpha :as expound]
             [clojure.spec.alpha :as s]
             [clojure.walk :refer [prewalk]]
             ;; Require specs for all AWS namespaces
-            [edn-to-cfn.specs.aws]
-            [edn-to-cfn.specs.cfn]
+            [portkey.edn-to-cfn.specs.aws]
+            [portkey.edn-to-cfn.specs.cfn]
             [clojure.string :as str]))
 
 
