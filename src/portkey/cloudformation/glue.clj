@@ -7,52 +7,58 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.glue/connection
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.glue/connection-input
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.glue/connection-input
     :portkey.cloudformation.glue/catalog-id]
    :opt
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/catalog-id
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.glue/classifier
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.glue/grok-classifier])))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.glue/table
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.glue/table-input
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.glue/table-input
     :portkey.cloudformation.glue/database-name
     :portkey.cloudformation.glue/catalog-id]
    :opt
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/database-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/catalog-id
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.glue/crawler
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.glue/database-name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.glue/database-name
     :portkey.cloudformation.glue/role
     :portkey.cloudformation.glue/targets]
    :opt
@@ -64,41 +70,45 @@
     :portkey.cloudformation.glue/name]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/database-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/role
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/table-prefix
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.glue/database
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.glue/database-input
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.glue/database-input
     :portkey.cloudformation.glue/catalog-id]
    :opt
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/catalog-id
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.glue/dev-endpoint
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.glue/public-key
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.glue/public-key
     :portkey.cloudformation.glue/role-arn]
    :opt
    [:portkey.cloudformation.glue/extra-jars-s3-path
@@ -109,33 +119,35 @@
     :portkey.cloudformation.glue/security-group-ids]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/extra-jars-s3-path
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/endpoint-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/public-key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/number-of-nodes
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/subnet-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/extra-python-libs-s3-path
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/role-arn
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.glue/job
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.glue/role
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.glue/role
     :portkey.cloudformation.glue/command]
    :opt
    [:portkey.cloudformation.glue/allocated-capacity
@@ -148,33 +160,35 @@
     :portkey.cloudformation.glue/name]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/allocated-capacity
-  clojure.core/double?)
+  (portkey.cloudformation/ref-or-spec clojure.core/double?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/log-uri
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/default-arguments
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/role
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/max-retries
-  clojure.core/double?)
+  (portkey.cloudformation/ref-or-spec clojure.core/double?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.glue/trigger
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.glue/type
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.glue/type
     :portkey.cloudformation.glue/actions]
    :opt
    [:portkey.cloudformation.glue/description
@@ -183,24 +197,26 @@
     :portkey.cloudformation.glue/predicate]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/schedule
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.glue/partition
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.glue/table-name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.glue/table-name
     :portkey.cloudformation.glue/database-name
     :portkey.cloudformation.glue/catalog-id
     :portkey.cloudformation.glue/partition-input]
@@ -208,20 +224,20 @@
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/table-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/database-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/catalog-id
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/availability-zone
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/subnet-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/physical-connection-requirements
   (clojure.spec.alpha/keys
@@ -234,13 +250,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/comment
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/column
   (clojure.spec.alpha/keys
@@ -252,13 +268,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/parameters
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/serialization-library
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/serde-info
   (clojure.spec.alpha/keys
@@ -271,10 +287,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/connection-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/path
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/jdbc-target
   (clojure.spec.alpha/keys
@@ -295,10 +311,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/update-behavior
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/delete-behavior
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/schema-change-policy
   (clojure.spec.alpha/keys
@@ -310,7 +326,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/logical
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/predicate
   (clojure.spec.alpha/keys
@@ -322,16 +338,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/location-uri
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/parameters
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/database-input
   (clojure.spec.alpha/keys
@@ -345,16 +361,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/custom-patterns
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/grok-pattern
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/classification
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/grok-classifier
   (clojure.spec.alpha/keys
@@ -367,7 +383,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/parameters
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/partition-input
   (clojure.spec.alpha/keys
@@ -379,7 +395,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/skewed-column-value-location-maps
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/skewed-info
   (clojure.spec.alpha/keys
@@ -392,10 +408,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/column
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/sort-order
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/order
   (clojure.spec.alpha/keys
@@ -407,10 +423,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/script-location
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/job-command
   (clojure.spec.alpha/keys
@@ -422,13 +438,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/comment
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/column
   (clojure.spec.alpha/keys
@@ -440,7 +456,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/skewed-column-value-location-maps
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/skewed-info
   (clojure.spec.alpha/keys
@@ -453,28 +469,28 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/view-expanded-text
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/parameters
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/owner
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/table-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/retention
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/view-original-text
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/table-input
   (clojure.spec.alpha/keys
@@ -503,7 +519,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/path
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/s3-target
   (clojure.spec.alpha/keys
@@ -515,10 +531,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/job-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/arguments
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/action
   (clojure.spec.alpha/keys
@@ -530,10 +546,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/column
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/sort-order
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/order
   (clojure.spec.alpha/keys
@@ -544,16 +560,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/connection-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/connection-properties
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/connection-input
   (clojure.spec.alpha/keys
@@ -568,13 +584,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/state
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/logical-operator
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/job-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/condition
   (clojure.spec.alpha/keys
@@ -587,7 +603,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/max-concurrent-runs
-  clojure.core/double?)
+  (portkey.cloudformation/ref-or-spec clojure.core/double?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/execution-property
   (clojure.spec.alpha/keys
@@ -598,13 +614,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/parameters
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/serialization-library
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/serde-info
   (clojure.spec.alpha/keys
@@ -617,7 +633,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/schedule-expression
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/schedule
   (clojure.spec.alpha/keys
@@ -628,25 +644,25 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/number-of-buckets
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/parameters
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/location
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/compressed
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/output-format
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/stored-as-sub-directories
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/input-format
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/storage-descriptor
   (clojure.spec.alpha/keys
@@ -668,25 +684,25 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/number-of-buckets
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/parameters
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/location
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/compressed
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/output-format
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/stored-as-sub-directories
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/input-format
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.glue/storage-descriptor
   (clojure.spec.alpha/keys

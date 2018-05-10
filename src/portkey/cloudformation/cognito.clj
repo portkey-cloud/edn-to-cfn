@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cognito/user-pool-group
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cognito/user-pool-id]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cognito/user-pool-id]
    :opt
    [:portkey.cloudformation.cognito/group-name
     :portkey.cloudformation.cognito/description
@@ -18,27 +20,29 @@
     :portkey.cloudformation.cognito/role-arn]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/group-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/user-pool-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/precedence
-  clojure.core/double?)
+  (portkey.cloudformation/ref-or-spec clojure.core/double?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/role-arn
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cognito/identity-pool
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cognito/allow-unauthenticated-identities]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cognito/allow-unauthenticated-identities]
    :opt
    [:portkey.cloudformation.cognito/push-sync
     :portkey.cloudformation.cognito/supported-login-providers
@@ -51,27 +55,29 @@
     :portkey.cloudformation.cognito/cognito-events]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/supported-login-providers
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/developer-provider-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/allow-unauthenticated-identities
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/identity-pool-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/cognito-events
-  clojure.core/any?))
+  (portkey.cloudformation/ref-or-spec clojure.core/any?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cognito/user-pool-user
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cognito/user-pool-id]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cognito/user-pool-id]
    :opt
    [:portkey.cloudformation.cognito/validation-data
     :portkey.cloudformation.cognito/username
@@ -81,24 +87,26 @@
     :portkey.cloudformation.cognito/user-attributes]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/user-pool-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/username
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/message-action
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/force-alias-creation
-  clojure.core/boolean?))
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cognito/user-pool-client
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cognito/user-pool-id]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cognito/user-pool-id]
    :opt
    [:portkey.cloudformation.cognito/generate-secret
     :portkey.cloudformation.cognito/client-name
@@ -108,65 +116,69 @@
     :portkey.cloudformation.cognito/write-attributes]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/generate-secret
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/client-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/user-pool-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/refresh-token-validity
-  clojure.core/double?))
+  (portkey.cloudformation/ref-or-spec clojure.core/double?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cognito/identity-pool-role-attachment
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cognito/identity-pool-id]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cognito/identity-pool-id]
    :opt
    [:portkey.cloudformation.cognito/role-mappings
     :portkey.cloudformation.cognito/roles]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/role-mappings
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/identity-pool-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/roles
-  clojure.core/any?))
+  (portkey.cloudformation/ref-or-spec clojure.core/any?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cognito/user-pool-user-to-group-attachment
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cognito/group-name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cognito/group-name
     :portkey.cloudformation.cognito/user-pool-id
     :portkey.cloudformation.cognito/username]
    :opt
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/group-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/user-pool-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/username
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cognito/user-pool
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.cognito/sms-configuration
     :portkey.cloudformation.cognito/schema
@@ -187,32 +199,32 @@
     :portkey.cloudformation.cognito/alias-attributes]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/mfa-configuration
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/sms-verification-message
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/user-pool-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/email-verification-message
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/email-verification-subject
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/user-pool-tags
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/sms-authentication-message
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/device-only-remembered-on-user-prompt
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/challenge-required-on-new-device
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/device-configuration
   (clojure.spec.alpha/keys
@@ -224,10 +236,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/ambiguous-role-resolution
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/role-mapping
   (clojure.spec.alpha/keys
@@ -239,10 +251,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/attribute-type
   (clojure.spec.alpha/keys
@@ -254,16 +266,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/match-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/claim
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/mapping-rule
   (clojure.spec.alpha/keys
@@ -277,10 +289,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/min-length
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/max-length
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/string-attribute-constraints
   (clojure.spec.alpha/keys
@@ -292,10 +304,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/external-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/sns-caller-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/sms-configuration
   (clojure.spec.alpha/keys
@@ -307,13 +319,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/server-side-token-check
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/provider-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/client-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/cognito-identity-provider
   (clojure.spec.alpha/keys
@@ -326,10 +338,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/min-value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/max-value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/number-attribute-constraints
   (clojure.spec.alpha/keys
@@ -341,7 +353,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/push-sync
   (clojure.spec.alpha/keys
@@ -361,19 +373,19 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/require-numbers
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/minimum-length
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/require-uppercase
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/require-lowercase
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/require-symbols
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/password-policy
   (clojure.spec.alpha/keys
@@ -396,19 +408,19 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/developer-only-attribute
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/mutable
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/attribute-data-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/required
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/schema-attribute
   (clojure.spec.alpha/keys
@@ -425,13 +437,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/email-message
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/sms-message
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/email-subject
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/invite-message-template
   (clojure.spec.alpha/keys
@@ -444,28 +456,28 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/create-auth-challenge
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/pre-authentication
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/define-auth-challenge
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/pre-sign-up
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/post-authentication
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/post-confirmation
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/custom-message
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/verify-auth-challenge-response
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/lambda-config
   (clojure.spec.alpha/keys
@@ -483,13 +495,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/streaming-status
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/stream-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/cognito-streams
   (clojure.spec.alpha/keys
@@ -502,10 +514,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/unused-account-validity-days
-  clojure.core/double?)
+  (portkey.cloudformation/ref-or-spec clojure.core/double?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/allow-admin-create-user-only
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/admin-create-user-config
   (clojure.spec.alpha/keys
@@ -518,10 +530,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/reply-to-email-address
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/source-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cognito/email-configuration
   (clojure.spec.alpha/keys

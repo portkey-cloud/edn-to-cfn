@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.directory-service/microsoft-ad
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.directory-service/name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.directory-service/name
     :portkey.cloudformation.directory-service/password
     :portkey.cloudformation.directory-service/vpc-settings]
    :opt
@@ -19,27 +21,29 @@
     :portkey.cloudformation.directory-service/short-name]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/create-alias
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/enable-sso
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/password
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/short-name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.directory-service/simple-ad
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.directory-service/name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.directory-service/name
     :portkey.cloudformation.directory-service/password
     :portkey.cloudformation.directory-service/size
     :portkey.cloudformation.directory-service/vpc-settings]
@@ -50,29 +54,29 @@
     :portkey.cloudformation.directory-service/short-name]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/create-alias
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/enable-sso
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/password
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/short-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/size
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/vpc-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/vpc-settings
   (clojure.spec.alpha/keys
@@ -84,7 +88,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/vpc-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.directory-service/vpc-settings
   (clojure.spec.alpha/keys

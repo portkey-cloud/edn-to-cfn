@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cloud-trail/trail
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cloud-trail/s3-bucket-name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cloud-trail/s3-bucket-name
     :portkey.cloudformation.cloud-trail/is-logging]
    :opt
    [:portkey.cloudformation.cloud-trail/enable-log-file-validation
@@ -26,41 +28,41 @@
     :portkey.cloudformation.cloud-trail/trail-name]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/enable-log-file-validation
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/cloud-watch-logs-log-group-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/include-global-service-events
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/s3-bucket-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/kms-key-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/cloud-watch-logs-role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/s3-key-prefix
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/sns-topic-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/is-logging
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/is-multi-region-trail
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/trail-name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/data-resource
   (clojure.spec.alpha/keys
@@ -71,10 +73,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/include-management-events
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/read-write-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-trail/event-selector
   (clojure.spec.alpha/keys

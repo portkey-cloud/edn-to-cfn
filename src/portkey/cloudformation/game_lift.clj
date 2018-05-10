@@ -7,27 +7,31 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.game-lift/alias
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.game-lift/name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.game-lift/name
     :portkey.cloudformation.game-lift/routing-strategy]
    :opt
    [:portkey.cloudformation.game-lift/description]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.game-lift/fleet
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.game-lift/ec2-instance-type
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.game-lift/ec2-instance-type
     :portkey.cloudformation.game-lift/server-launch-path
     :portkey.cloudformation.game-lift/desired-ec2-instances
     :portkey.cloudformation.game-lift/name
@@ -41,59 +45,59 @@
     :portkey.cloudformation.game-lift/log-paths]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/ec2-instance-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/server-launch-path
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/server-launch-parameters
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/desired-ec2-instances
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/min-size
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/max-size
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/build-id
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.game-lift/build
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.game-lift/name
     :portkey.cloudformation.game-lift/storage-location
     :portkey.cloudformation.game-lift/version]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/version
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/bucket
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/s3-location
   (clojure.spec.alpha/keys
@@ -106,16 +110,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/from-port
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/ip-range
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/protocol
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/to-port
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/ip-permission
   (clojure.spec.alpha/keys
@@ -129,13 +133,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/fleet-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/message
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.game-lift/routing-strategy
   (clojure.spec.alpha/keys

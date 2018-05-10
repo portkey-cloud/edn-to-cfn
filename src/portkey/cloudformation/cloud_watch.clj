@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cloud-watch/alarm
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cloud-watch/period
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cloud-watch/period
     :portkey.cloudformation.cloud-watch/threshold
     :portkey.cloudformation.cloud-watch/comparison-operator
     :portkey.cloudformation.cloud-watch/namespace
@@ -31,69 +33,71 @@
     :portkey.cloudformation.cloud-watch/actions-enabled]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/unit
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/treat-missing-data
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/period
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/threshold
-  clojure.core/double?)
+  (portkey.cloudformation/ref-or-spec clojure.core/double?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/comparison-operator
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/namespace
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/evaluate-low-sample-count-percentile
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/alarm-description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/alarm-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/extended-statistic
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/metric-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/evaluation-periods
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/statistic
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/actions-enabled
-  clojure.core/boolean?))
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cloud-watch/dashboard
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cloud-watch/dashboard-body]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cloud-watch/dashboard-body]
    :opt
    [:portkey.cloudformation.cloud-watch/dashboard-name]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/dashboard-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/dashboard-body
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-watch/dimension
   (clojure.spec.alpha/keys

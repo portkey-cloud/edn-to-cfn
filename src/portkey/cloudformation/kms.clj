@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.kms/key
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.kms/key-policy]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.kms/key-policy]
    :opt
    [:portkey.cloudformation.kms/description
     :portkey.cloudformation.kms/enable-key-rotation
@@ -19,33 +21,35 @@
     :portkey.cloudformation.kms/tags]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kms/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kms/enable-key-rotation
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kms/enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kms/key-policy
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kms/key-usage
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.kms/alias
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.kms/alias-name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.kms/alias-name
     :portkey.cloudformation.kms/target-key-id]
    :opt
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kms/alias-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kms/target-key-id
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))

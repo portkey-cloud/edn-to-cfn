@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.application-auto-scaling/scalable-target
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.application-auto-scaling/max-capacity
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.application-auto-scaling/max-capacity
     :portkey.cloudformation.application-auto-scaling/min-capacity
     :portkey.cloudformation.application-auto-scaling/resource-id
     :portkey.cloudformation.application-auto-scaling/role-arn
@@ -20,30 +22,32 @@
    [:portkey.cloudformation.application-auto-scaling/scheduled-actions]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/max-capacity
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/min-capacity
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/resource-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/scalable-dimension
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/service-namespace
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.application-auto-scaling/scaling-policy
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.application-auto-scaling/policy-name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.application-auto-scaling/policy-name
     :portkey.cloudformation.application-auto-scaling/policy-type]
    :opt
    [:portkey.cloudformation.application-auto-scaling/resource-id
@@ -54,35 +58,35 @@
     :portkey.cloudformation.application-auto-scaling/target-tracking-scaling-policy-configuration]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/policy-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/policy-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/resource-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/scalable-dimension
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/scaling-target-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/service-namespace
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/adjustment-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/cooldown
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/metric-aggregation-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/min-adjustment-magnitude
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/step-scaling-policy-configuration
   (clojure.spec.alpha/keys
@@ -97,16 +101,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/metric-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/namespace
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/statistic
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/unit
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/customized-metric-specification
   (clojure.spec.alpha/keys
@@ -120,13 +124,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/metric-interval-lower-bound
-  clojure.core/double?)
+  (portkey.cloudformation/ref-or-spec clojure.core/double?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/metric-interval-upper-bound
-  clojure.core/double?)
+  (portkey.cloudformation/ref-or-spec clojure.core/double?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/scaling-adjustment
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/step-adjustment
   (clojure.spec.alpha/keys
@@ -138,16 +142,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/end-time
-  clojure.core/inst?)
+  (portkey.cloudformation/ref-or-spec clojure.core/inst?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/schedule
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/scheduled-action-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/start-time
-  clojure.core/inst?)
+  (portkey.cloudformation/ref-or-spec clojure.core/inst?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/scheduled-action
   (clojure.spec.alpha/keys
@@ -161,10 +165,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/predefined-metric-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/resource-label
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/predefined-metric-specification
   (clojure.spec.alpha/keys
@@ -175,10 +179,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/max-capacity
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/min-capacity
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/scalable-target-action
   (clojure.spec.alpha/keys
@@ -190,16 +194,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/disable-scale-in
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/scale-in-cooldown
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/scale-out-cooldown
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/target-value
-  clojure.core/double?)
+  (portkey.cloudformation/ref-or-spec clojure.core/double?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/target-tracking-scaling-policy-configuration
   (clojure.spec.alpha/keys
@@ -214,10 +218,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.application-auto-scaling/metric-dimension
   (clojure.spec.alpha/keys

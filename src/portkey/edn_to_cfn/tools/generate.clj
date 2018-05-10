@@ -67,14 +67,17 @@
     `(do
        ;; Output multi-spec method for this resource type
        (defmethod portkey.cloudformation/resource-type-spec ~(keyword namespace type-name) [_#]
-         (s/keys :req [~@(for [[p _] required-props]
+         (s/keys :req [:portkey.cloudformation/id
+                       :portkey.cloudformation/type
+                       ~@(for [[p _] required-props]
                            (keyword namespace (camel->clojure p)))]
                  :opt [~@(for [[p _] optional-props]
                            (keyword namespace (camel->clojure p)))]))
        ;; Output specs for all primitive properties (that don't have their own definitions)
        ~@(for [[name {:strs [PrimitiveType]}] (seq Properties)
                :when PrimitiveType]
-           `(s/def ~(keyword namespace (camel->clojure name)) ~(primitive-type PrimitiveType))))))
+           `(s/def ~(keyword namespace (camel->clojure name))
+              (portkey.cloudformation/ref-or-spec ~(primitive-type PrimitiveType)))))))
 
 
 
@@ -87,7 +90,8 @@
        ~@(for [[p {:strs [PrimitiveType]}] Properties
                :when PrimitiveType]
            `(s/def ~(keyword namespace (camel->clojure p))
-              ~(primitive-type PrimitiveType)))
+              (portkey.cloudformation/ref-or-spec
+               ~(primitive-type PrimitiveType))))
        (s/def ~(keyword namespace property-name)
          (s/keys :req [~@(for [[p _] required-props]
                            (keyword namespace (camel->clojure p)))]
@@ -123,3 +127,6 @@
         (doseq [[name property] (properties-by-namespace namespace)]
           (println "   --> PROPERTY: " name)
           (pprint/pprint (property-spec name property) out))))))
+
+(defn generate []
+  (generate-files json-spec))

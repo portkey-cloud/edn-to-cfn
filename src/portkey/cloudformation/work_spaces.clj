@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.work-spaces/workspace
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.work-spaces/bundle-id
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.work-spaces/bundle-id
     :portkey.cloudformation.work-spaces/directory-id
     :portkey.cloudformation.work-spaces/user-name]
    :opt
@@ -19,19 +21,19 @@
     :portkey.cloudformation.work-spaces/volume-encryption-key]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.work-spaces/bundle-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.work-spaces/directory-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.work-spaces/root-volume-encryption-enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.work-spaces/user-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.work-spaces/user-volume-encryption-enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.work-spaces/volume-encryption-key
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))

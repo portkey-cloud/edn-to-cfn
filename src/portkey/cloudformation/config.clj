@@ -7,27 +7,31 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.config/configuration-recorder
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.config/role-arn]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.config/role-arn]
    :opt
    [:portkey.cloudformation.config/name
     :portkey.cloudformation.config/recording-group]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/role-arn
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.config/config-rule
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.config/source]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.config/source]
    :opt
    [:portkey.cloudformation.config/config-rule-name
     :portkey.cloudformation.config/description
@@ -36,24 +40,26 @@
     :portkey.cloudformation.config/scope]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/config-rule-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/input-parameters
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/maximum-execution-frequency
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.config/delivery-channel
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.config/s3-bucket-name]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.config/s3-bucket-name]
    :opt
    [:portkey.cloudformation.config/config-snapshot-delivery-properties
     :portkey.cloudformation.config/name
@@ -61,26 +67,26 @@
     :portkey.cloudformation.config/sns-topic-arn]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/s3-bucket-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/s3-key-prefix
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/sns-topic-arn
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/compliance-resource-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/tag-key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/tag-value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/scope
   (clojure.spec.alpha/keys
@@ -94,13 +100,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/event-source
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/maximum-execution-frequency
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/message-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/source-detail
   (clojure.spec.alpha/keys
@@ -112,10 +118,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/owner
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/source-identifier
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/source
   (clojure.spec.alpha/keys
@@ -127,7 +133,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/delivery-frequency
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/config-snapshot-delivery-properties
   (clojure.spec.alpha/keys
@@ -138,10 +144,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/all-supported
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/include-global-resource-types
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.config/recording-group
   (clojure.spec.alpha/keys

@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.code-deploy/deployment-group
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.code-deploy/service-role-arn
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.code-deploy/service-role-arn
     :portkey.cloudformation.code-deploy/application-name]
    :opt
    [:portkey.cloudformation.code-deploy/auto-rollback-configuration
@@ -26,54 +28,54 @@
     :portkey.cloudformation.code-deploy/auto-scaling-groups]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/deployment-config-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/service-role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/deployment-group-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/application-name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.code-deploy/application
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.code-deploy/application-name
     :portkey.cloudformation.code-deploy/compute-platform]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/application-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/compute-platform
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.code-deploy/deployment-config
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.code-deploy/deployment-config-name
     :portkey.cloudformation.code-deploy/minimum-healthy-hosts]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/deployment-config-name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/commit-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/repository
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/git-hub-location
   (clojure.spec.alpha/keys
@@ -85,7 +87,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/target-group-info
   (clojure.spec.alpha/keys
@@ -96,7 +98,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/revision-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/revision-location
   (clojure.spec.alpha/keys
@@ -109,10 +111,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/trigger-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/trigger-target-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/trigger-config
   (clojure.spec.alpha/keys
@@ -125,10 +127,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/value
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/minimum-healthy-hosts
   (clojure.spec.alpha/keys
@@ -140,19 +142,19 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/bucket
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/bundle-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/e-tag
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/version
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/s3-location
   (clojure.spec.alpha/keys
@@ -166,13 +168,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/ec2-tag-filter
   (clojure.spec.alpha/keys
@@ -185,13 +187,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/tag-filter
   (clojure.spec.alpha/keys
@@ -204,10 +206,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/ignore-application-stop-failures
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/deployment
   (clojure.spec.alpha/keys
@@ -219,7 +221,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/elb-info
   (clojure.spec.alpha/keys
@@ -230,10 +232,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/ignore-poll-alarm-failure
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/alarm-configuration
   (clojure.spec.alpha/keys
@@ -246,10 +248,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/deployment-option
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/deployment-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/deployment-style
   (clojure.spec.alpha/keys
@@ -270,7 +272,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/auto-rollback-configuration
   (clojure.spec.alpha/keys
@@ -282,7 +284,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-deploy/alarm
   (clojure.spec.alpha/keys

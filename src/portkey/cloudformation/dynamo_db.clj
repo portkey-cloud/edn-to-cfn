@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.dynamo-db/table
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.dynamo-db/key-schema
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.dynamo-db/key-schema
     :portkey.cloudformation.dynamo-db/provisioned-throughput]
    :opt
    [:portkey.cloudformation.dynamo-db/stream-specification
@@ -23,11 +25,11 @@
     :portkey.cloudformation.dynamo-db/global-secondary-indexes]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/table-name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/index-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/global-secondary-index
   (clojure.spec.alpha/keys
@@ -41,7 +43,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/index-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/local-secondary-index
   (clojure.spec.alpha/keys
@@ -54,10 +56,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/attribute-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/attribute-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/attribute-definition
   (clojure.spec.alpha/keys
@@ -69,10 +71,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/read-capacity-units
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/write-capacity-units
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/provisioned-throughput
   (clojure.spec.alpha/keys
@@ -84,10 +86,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/attribute-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/key-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/key-schema
   (clojure.spec.alpha/keys
@@ -99,10 +101,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/attribute-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/time-to-live-specification
   (clojure.spec.alpha/keys
@@ -114,7 +116,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/projection-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/projection
   (clojure.spec.alpha/keys
@@ -126,7 +128,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/sse-enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/sse-specification
   (clojure.spec.alpha/keys
@@ -137,7 +139,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/stream-view-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.dynamo-db/stream-specification
   (clojure.spec.alpha/keys

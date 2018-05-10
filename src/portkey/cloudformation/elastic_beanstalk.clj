@@ -7,28 +7,30 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.elastic-beanstalk/application
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.elastic-beanstalk/application-name
     :portkey.cloudformation.elastic-beanstalk/description
     :portkey.cloudformation.elastic-beanstalk/resource-lifecycle-config]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/application-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/description
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.elastic-beanstalk/configuration-template
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.elastic-beanstalk/application-name]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.elastic-beanstalk/application-name]
    :opt
    [:portkey.cloudformation.elastic-beanstalk/description
     :portkey.cloudformation.elastic-beanstalk/environment-id
@@ -38,27 +40,29 @@
     :portkey.cloudformation.elastic-beanstalk/source-configuration]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/application-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/environment-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/platform-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/solution-stack-name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.elastic-beanstalk/environment
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.elastic-beanstalk/application-name]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.elastic-beanstalk/application-name]
    :opt
    [:portkey.cloudformation.elastic-beanstalk/version-label
     :portkey.cloudformation.elastic-beanstalk/tier
@@ -72,58 +76,60 @@
     :portkey.cloudformation.elastic-beanstalk/platform-arn]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/version-label
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/solution-stack-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/environment-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/application-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/cname-prefix
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/template-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/platform-arn
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.elastic-beanstalk/application-version
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.elastic-beanstalk/application-name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.elastic-beanstalk/application-name
     :portkey.cloudformation.elastic-beanstalk/source-bundle]
    :opt
    [:portkey.cloudformation.elastic-beanstalk/description]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/application-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/description
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/namespace
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/option-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/resource-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/configuration-option-setting
   (clojure.spec.alpha/keys
@@ -136,7 +142,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/service-role
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/application-resource-lifecycle-config
   (clojure.spec.alpha/keys
@@ -148,13 +154,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/delete-source-from-s3
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/max-age-in-days
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/max-age-rule
   (clojure.spec.alpha/keys
@@ -167,13 +173,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/delete-source-from-s3
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/max-count
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/max-count-rule
   (clojure.spec.alpha/keys
@@ -186,16 +192,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/namespace
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/option-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/resource-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/option-setting
   (clojure.spec.alpha/keys
@@ -217,13 +223,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/version
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/tier
   (clojure.spec.alpha/keys
@@ -236,10 +242,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/application-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/template-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/source-configuration
   (clojure.spec.alpha/keys
@@ -251,10 +257,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/s3-bucket
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/s3-key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-beanstalk/source-bundle
   (clojure.spec.alpha/keys

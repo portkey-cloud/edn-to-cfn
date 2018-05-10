@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.ecs/service
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.ecs/task-definition]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.ecs/task-definition]
    :opt
    [:portkey.cloudformation.ecs/placement-strategies
     :portkey.cloudformation.ecs/desired-count
@@ -26,49 +28,49 @@
     :portkey.cloudformation.ecs/health-check-grace-period-seconds]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/desired-count
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/role
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/cluster
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/task-definition
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/platform-version
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/service-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/launch-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/health-check-grace-period-seconds
-  clojure.core/integer?))
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.ecs/cluster
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.ecs/cluster-name]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/cluster-name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.ecs/task-definition
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.ecs/cpu
     :portkey.cloudformation.ecs/task-role-arn
@@ -82,32 +84,32 @@
     :portkey.cloudformation.ecs/container-definitions]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/cpu
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/task-role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/family
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/execution-role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/memory
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/network-mode
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/hard-limit
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/soft-limit
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/ulimit
   (clojure.spec.alpha/keys
@@ -120,10 +122,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/key-value-pair
   (clojure.spec.alpha/keys
@@ -135,10 +137,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/maximum-percent
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/minimum-healthy-percent
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/deployment-configuration
   (clojure.spec.alpha/keys
@@ -158,10 +160,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/hostname
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/ip-address
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/host-entry
   (clojure.spec.alpha/keys
@@ -173,10 +175,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/container-path
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/host-path
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/device
   (clojure.spec.alpha/keys
@@ -188,7 +190,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/source-path
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/host-volume-properties
   (clojure.spec.alpha/keys
@@ -207,7 +209,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/assign-public-ip
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/aws-vpc-configuration
   (clojure.spec.alpha/keys
@@ -219,10 +221,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/expression
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/placement-constraint
   (clojure.spec.alpha/keys
@@ -233,13 +235,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/container-port
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/host-port
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/protocol
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/port-mapping
   (clojure.spec.alpha/keys
@@ -252,40 +254,40 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/cpu
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/user
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/privileged
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/hostname
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/disable-networking
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/memory
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/readonly-root-filesystem
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/image
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/essential
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/working-directory
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/memory-reservation
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/container-definition
   (clojure.spec.alpha/keys
@@ -322,16 +324,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/container-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/container-port
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/load-balancer-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/target-group-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/load-balancer
   (clojure.spec.alpha/keys
@@ -344,10 +346,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/expression
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/task-definition-placement-constraint
   (clojure.spec.alpha/keys
@@ -358,10 +360,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/field
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/placement-strategy
   (clojure.spec.alpha/keys
@@ -372,10 +374,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/read-only
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/source-container
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/volume-from
   (clojure.spec.alpha/keys
@@ -387,7 +389,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/volume
   (clojure.spec.alpha/keys
@@ -399,7 +401,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/log-driver
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/log-configuration
   (clojure.spec.alpha/keys
@@ -410,13 +412,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/container-path
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/read-only
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/source-volume
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/mount-point
   (clojure.spec.alpha/keys
@@ -429,7 +431,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/init-process-enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecs/linux-parameters
   (clojure.spec.alpha/keys

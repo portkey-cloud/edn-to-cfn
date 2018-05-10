@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.elastic-load-balancing-v2/listener-rule
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.elastic-load-balancing-v2/actions
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.elastic-load-balancing-v2/actions
     :portkey.cloudformation.elastic-load-balancing-v2/conditions
     :portkey.cloudformation.elastic-load-balancing-v2/listener-arn
     :portkey.cloudformation.elastic-load-balancing-v2/priority]
@@ -18,18 +20,18 @@
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/listener-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/priority
-  clojure.core/integer?))
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.elastic-load-balancing-v2/load-balancer
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.elastic-load-balancing-v2/load-balancer-attributes
     :portkey.cloudformation.elastic-load-balancing-v2/type
@@ -42,38 +44,42 @@
     :portkey.cloudformation.elastic-load-balancing-v2/name]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/ip-address-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/scheme
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.elastic-load-balancing-v2/listener-certificate
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.elastic-load-balancing-v2/certificates
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.elastic-load-balancing-v2/certificates
     :portkey.cloudformation.elastic-load-balancing-v2/listener-arn]
    :opt
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/listener-arn
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.elastic-load-balancing-v2/target-group
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.elastic-load-balancing-v2/protocol
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.elastic-load-balancing-v2/protocol
     :portkey.cloudformation.elastic-load-balancing-v2/port
     :portkey.cloudformation.elastic-load-balancing-v2/vpc-id]
    :opt
@@ -92,48 +98,50 @@
     :portkey.cloudformation.elastic-load-balancing-v2/health-check-path]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/healthy-threshold-count
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/health-check-timeout-seconds
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/target-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/unhealthy-threshold-count
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/protocol
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/port
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/vpc-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/health-check-interval-seconds
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/health-check-port
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/health-check-protocol
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/health-check-path
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.elastic-load-balancing-v2/listener
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.elastic-load-balancing-v2/default-actions
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.elastic-load-balancing-v2/default-actions
     :portkey.cloudformation.elastic-load-balancing-v2/load-balancer-arn
     :portkey.cloudformation.elastic-load-balancing-v2/port
     :portkey.cloudformation.elastic-load-balancing-v2/protocol]
@@ -142,26 +150,26 @@
     :portkey.cloudformation.elastic-load-balancing-v2/ssl-policy]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/load-balancer-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/port
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/protocol
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/ssl-policy
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/availability-zone
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/port
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/target-description
   (clojure.spec.alpha/keys
@@ -173,7 +181,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/certificate-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/certificate
   (clojure.spec.alpha/keys
@@ -184,7 +192,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/certificate-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/certificate
   (clojure.spec.alpha/keys
@@ -195,7 +203,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/field
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/rule-condition
   (clojure.spec.alpha/keys
@@ -207,7 +215,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/http-code
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/matcher
   (clojure.spec.alpha/keys
@@ -218,10 +226,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/target-group-attribute
   (clojure.spec.alpha/keys
@@ -233,10 +241,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/allocation-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/subnet-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/subnet-mapping
   (clojure.spec.alpha/keys
@@ -248,10 +256,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/load-balancer-attribute
   (clojure.spec.alpha/keys
@@ -263,10 +271,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/target-group-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/action
   (clojure.spec.alpha/keys
@@ -278,10 +286,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/target-group-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.elastic-load-balancing-v2/action
   (clojure.spec.alpha/keys

@@ -7,10 +7,10 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.kinesis-firehose/delivery-stream
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.kinesis-firehose/delivery-stream-name
     :portkey.cloudformation.kinesis-firehose/delivery-stream-type
@@ -21,26 +21,26 @@
     :portkey.cloudformation.kinesis-firehose/s3-destination-configuration]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/delivery-stream-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/delivery-stream-type
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/prefix
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/compression-format
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/s3-backup-mode
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/bucket-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/extended-s3-destination-configuration
   (clojure.spec.alpha/keys
@@ -59,10 +59,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/interval-in-seconds
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/size-in-m-bs
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/buffering-hints
   (clojure.spec.alpha/keys
@@ -74,13 +74,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/copy-options
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/data-table-columns
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/data-table-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/copy-command
   (clojure.spec.alpha/keys
@@ -92,7 +92,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/processing-configuration
   (clojure.spec.alpha/keys
@@ -104,13 +104,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/enabled
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/log-group-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/log-stream-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/cloud-watch-logging-options
   (clojure.spec.alpha/keys
@@ -123,16 +123,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/bucket-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/compression-format
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/prefix
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/s3-destination-configuration
   (clojure.spec.alpha/keys
@@ -148,10 +148,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/parameter-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/parameter-value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/processor-parameter
   (clojure.spec.alpha/keys
@@ -163,10 +163,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/interval-in-seconds
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/size-in-m-bs
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/elasticsearch-buffering-hints
   (clojure.spec.alpha/keys
@@ -178,22 +178,22 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/index-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/type-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/index-rotation-period
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/s3-backup-mode
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/domain-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/elasticsearch-destination-configuration
   (clojure.spec.alpha/keys
@@ -213,10 +213,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/kinesis-stream-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/kinesis-stream-source-configuration
   (clojure.spec.alpha/keys
@@ -228,7 +228,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/duration-in-seconds
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/elasticsearch-retry-options
   (clojure.spec.alpha/keys
@@ -239,7 +239,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/processor
   (clojure.spec.alpha/keys
@@ -251,7 +251,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/awskms-key-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/kms-encryption-config
   (clojure.spec.alpha/keys
@@ -262,16 +262,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/cluster-jdbcurl
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/password
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/username
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/redshift-destination-configuration
   (clojure.spec.alpha/keys
@@ -288,7 +288,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/no-encryption-config
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis-firehose/encryption-configuration
   (clojure.spec.alpha/keys

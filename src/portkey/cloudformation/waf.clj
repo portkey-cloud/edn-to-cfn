@@ -7,108 +7,122 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.waf/web-acl
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.waf/default-action
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.waf/default-action
     :portkey.cloudformation.waf/metric-name
     :portkey.cloudformation.waf/name]
    :opt
    [:portkey.cloudformation.waf/rules]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/metric-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.waf/rule
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.waf/metric-name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.waf/metric-name
     :portkey.cloudformation.waf/name]
    :opt
    [:portkey.cloudformation.waf/predicates]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/metric-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.waf/size-constraint-set
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.waf/name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.waf/name
     :portkey.cloudformation.waf/size-constraints]
    :opt
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.waf/ip-set
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.waf/name]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.waf/name]
    :opt
    [:portkey.cloudformation.waf/ip-set-descriptors]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.waf/byte-match-set
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.waf/name]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.waf/name]
    :opt
    [:portkey.cloudformation.waf/byte-match-tuples]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.waf/xss-match-set
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.waf/name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.waf/name
     :portkey.cloudformation.waf/xss-match-tuples]
    :opt
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.waf/sql-injection-match-set
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.waf/name]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.waf/name]
    :opt
    [:portkey.cloudformation.waf/sql-injection-match-tuples]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/text-transformation
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/sql-injection-match-tuple
   (clojure.spec.alpha/keys
@@ -120,10 +134,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/ip-set-descriptor
   (clojure.spec.alpha/keys
@@ -134,13 +148,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/comparison-operator
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/size
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/text-transformation
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/size-constraint
   (clojure.spec.alpha/keys
@@ -154,10 +168,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/priority
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/rule-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/activated-rule
   (clojure.spec.alpha/keys
@@ -170,7 +184,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/text-transformation
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/xss-match-tuple
   (clojure.spec.alpha/keys
@@ -182,16 +196,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/positional-constraint
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/target-string
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/target-string-base64
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/text-transformation
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/byte-match-tuple
   (clojure.spec.alpha/keys
@@ -205,13 +219,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/data-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/negated
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/predicate
   (clojure.spec.alpha/keys
@@ -224,10 +238,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/data
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/field-to-match
   (clojure.spec.alpha/keys
@@ -238,7 +252,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/waf-action
   (clojure.spec.alpha/keys
@@ -249,10 +263,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/data
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/field-to-match
   (clojure.spec.alpha/keys
@@ -263,10 +277,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/data
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/field-to-match
   (clojure.spec.alpha/keys
@@ -277,10 +291,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/data
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.waf/field-to-match
   (clojure.spec.alpha/keys

@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.code-pipeline/custom-action-type
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.code-pipeline/category
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.code-pipeline/category
     :portkey.cloudformation.code-pipeline/input-artifact-details
     :portkey.cloudformation.code-pipeline/output-artifact-details
     :portkey.cloudformation.code-pipeline/provider]
@@ -20,21 +22,23 @@
     :portkey.cloudformation.code-pipeline/version]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/category
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/provider
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/version
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.code-pipeline/pipeline
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.code-pipeline/artifact-store
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.code-pipeline/artifact-store
     :portkey.cloudformation.code-pipeline/role-arn
     :portkey.cloudformation.code-pipeline/stages]
    :opt
@@ -43,26 +47,26 @@
     :portkey.cloudformation.code-pipeline/restart-execution-on-update]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/restart-execution-on-update
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/role-arn
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/category
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/owner
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/provider
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/version
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/action-type-id
   (clojure.spec.alpha/keys
@@ -76,10 +80,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/maximum-count
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/minimum-count
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/artifact-details
   (clojure.spec.alpha/keys
@@ -91,7 +95,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/output-artifact
   (clojure.spec.alpha/keys
@@ -102,16 +106,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/entity-url-template
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/execution-url-template
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/revision-url-template
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/third-party-configuration-url
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/settings
   (clojure.spec.alpha/keys
@@ -125,10 +129,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/reason
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/stage-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/stage-transition
   (clojure.spec.alpha/keys
@@ -140,25 +144,25 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/key
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/queryable
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/required
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/secret
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/configuration-properties
   (clojure.spec.alpha/keys
@@ -174,10 +178,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/blocker-declaration
   (clojure.spec.alpha/keys
@@ -189,7 +193,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/input-artifact
   (clojure.spec.alpha/keys
@@ -200,16 +204,16 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/configuration
-  clojure.core/any?)
+  (portkey.cloudformation/ref-or-spec clojure.core/any?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/role-arn
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/run-order
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/action-declaration
   (clojure.spec.alpha/keys
@@ -225,10 +229,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/location
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/artifact-store
   (clojure.spec.alpha/keys
@@ -240,7 +244,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/stage-declaration
   (clojure.spec.alpha/keys
@@ -252,10 +256,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.code-pipeline/encryption-key
   (clojure.spec.alpha/keys

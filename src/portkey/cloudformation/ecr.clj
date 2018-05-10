@@ -7,27 +7,27 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.ecr/repository
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   []
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
    :opt
    [:portkey.cloudformation.ecr/lifecycle-policy
     :portkey.cloudformation.ecr/repository-name
     :portkey.cloudformation.ecr/repository-policy-text]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecr/repository-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecr/repository-policy-text
-  clojure.core/any?))
+  (portkey.cloudformation/ref-or-spec clojure.core/any?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecr/lifecycle-policy-text
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecr/registry-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.ecr/lifecycle-policy
   (clojure.spec.alpha/keys

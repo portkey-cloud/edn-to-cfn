@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.data-pipeline/pipeline
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.data-pipeline/name
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.data-pipeline/name
     :portkey.cloudformation.data-pipeline/parameter-objects]
    :opt
    [:portkey.cloudformation.data-pipeline/activate
@@ -20,20 +22,20 @@
     :portkey.cloudformation.data-pipeline/pipeline-tags]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/activate
-  clojure.core/boolean?)
+  (portkey.cloudformation/ref-or-spec clojure.core/boolean?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/description
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/pipeline-object
   (clojure.spec.alpha/keys
@@ -46,10 +48,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/string-value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/parameter-attribute
   (clojure.spec.alpha/keys
@@ -61,10 +63,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/pipeline-tag
   (clojure.spec.alpha/keys
@@ -76,10 +78,10 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/string-value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/parameter-value
   (clojure.spec.alpha/keys
@@ -91,7 +93,7 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/parameter-object
   (clojure.spec.alpha/keys
@@ -103,13 +105,13 @@
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/key
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/ref-value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/string-value
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.data-pipeline/field
   (clojure.spec.alpha/keys

@@ -7,10 +7,12 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.kinesis/stream
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.kinesis/shard-count]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.kinesis/shard-count]
    :opt
    [:portkey.cloudformation.kinesis/name
     :portkey.cloudformation.kinesis/retention-period-hours
@@ -18,20 +20,20 @@
     :portkey.cloudformation.kinesis/tags]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis/name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis/retention-period-hours
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis/shard-count
-  clojure.core/integer?))
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis/encryption-type
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis/key-id
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.kinesis/stream-encryption
   (clojure.spec.alpha/keys

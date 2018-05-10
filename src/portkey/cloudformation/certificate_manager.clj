@@ -7,24 +7,26 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.certificate-manager/certificate
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.certificate-manager/domain-name]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.certificate-manager/domain-name]
    :opt
    [:portkey.cloudformation.certificate-manager/domain-validation-options
     :portkey.cloudformation.certificate-manager/subject-alternative-names
     :portkey.cloudformation.certificate-manager/tags]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.certificate-manager/domain-name
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.spec.alpha/def
   :portkey.cloudformation.certificate-manager/domain-name
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.certificate-manager/validation-domain
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.certificate-manager/domain-validation-option
   (clojure.spec.alpha/keys

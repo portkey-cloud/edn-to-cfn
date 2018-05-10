@@ -7,29 +7,37 @@
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cloud-formation/custom-resource
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cloud-formation/service-token]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cloud-formation/service-token]
    :opt
    []))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-formation/service-token
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cloud-formation/wait-condition-handle
-  [___15594__auto__]
-  (clojure.spec.alpha/keys :req [] :opt [])))
+  [___19567__auto__]
+  (clojure.spec.alpha/keys
+   :req
+   [:portkey.cloudformation/id :portkey.cloudformation/type]
+   :opt
+   [])))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cloud-formation/stack
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cloud-formation/template-url]
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cloud-formation/template-url]
    :opt
    [:portkey.cloudformation.cloud-formation/notification-ar-ns
     :portkey.cloudformation.cloud-formation/parameters
@@ -37,27 +45,29 @@
     :portkey.cloudformation.cloud-formation/timeout-in-minutes]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-formation/template-url
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-formation/timeout-in-minutes
-  clojure.core/integer?))
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?)))
 (do
  (clojure.core/defmethod
   portkey.cloudformation/resource-type-spec
   :portkey.cloudformation.cloud-formation/wait-condition
-  [___15594__auto__]
+  [___19567__auto__]
   (clojure.spec.alpha/keys
    :req
-   [:portkey.cloudformation.cloud-formation/handle
+   [:portkey.cloudformation/id
+    :portkey.cloudformation/type
+    :portkey.cloudformation.cloud-formation/handle
     :portkey.cloudformation.cloud-formation/timeout]
    :opt
    [:portkey.cloudformation.cloud-formation/count]))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-formation/count
-  clojure.core/integer?)
+  (portkey.cloudformation/ref-or-spec clojure.core/integer?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-formation/handle
-  clojure.core/string?)
+  (portkey.cloudformation/ref-or-spec clojure.core/string?))
  (clojure.spec.alpha/def
   :portkey.cloudformation.cloud-formation/timeout
-  clojure.core/string?))
+  (portkey.cloudformation/ref-or-spec clojure.core/string?)))
