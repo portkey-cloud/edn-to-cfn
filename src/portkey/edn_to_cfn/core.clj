@@ -30,22 +30,20 @@
 (defn- expand-resources
   "Takes list of resource like and expands them to a single list."
   [resource-likes]
-  (mapcat #(let [{:keys [single-resource more-resources]}
-                 (s/conform ::cfn/resource-like %)]
-             (if single-resource
-               (list single-resource)
-               (expand-resources more-resources)))
+  (mapcat #(if (map? %)
+             [%]
+             (expand-resources %))
           resource-likes))
 
 (defn- process-resources [edn]
   (update edn ::cfn/resources
           (fn [resources]
             (let [expanded-resources (expand-resources resources)
-                  resources-by-id (group-by ::cfn/id)
+                  resources-by-id (group-by ::cfn/id expanded-resources)
                   duplicate-ids (filter #(> (count (second %)) 1) resources-by-id)]
               (when (seq duplicate-ids)
-                (throw (ex-info "Duplicate resource ids found: " (str/join ", " (map first duplicate-ids))
-                                {:ids-and-resources (into {} duplicate-ids)})))
+                (throw (ex-info (str "Duplicate resource ids found: " (str/join ", " (map first duplicate-ids)))
+                                {:ids-and-resources duplicate-ids})))
               (into {}
                     (map (juxt ::cfn/id process-resource))
                     expanded-resources)))))
@@ -97,7 +95,7 @@
   [edn]
   (assert (map? edn) "Input must be a map!")
   (let [edn (merge edn cfn/template-defaults)]
-    (println "GOT EDN:\n" (pr-str edn) "\n-------------------")
+    ;;(println "GOT EDN:\n" (pr-str edn) "\n-------------------")
     (require-namespaces edn)
     (if-not (s/valid? ::cfn/template edn)
       (throw (ex-info (expound/expound-str ::cfn/template edn)
