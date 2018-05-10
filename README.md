@@ -19,3 +19,10 @@ The library contains automatically generated specifications for AWS CloudFormati
 `aws.*` namespaces.
 
 The goal is to fully spec all resources and their configuration.
+
+
+# License
+
+Copyright © 2018 Tatu Tarvainen
+
+Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
